@@ -32,7 +32,26 @@ class FlightController extends Controller
         ]);
     }
 
-    public function book(){
-        
+    public function book($id)
+    {
+        $flight = Flight::findOrFail($id);
+    
+        // Ambil kursi yang sudah digunakan
+        $usedSeats = $flight->tickets()->pluck('seat_number')->toArray();
+    
+        // Coba cari seat yang belum dipakai dengan format A01–Z30
+        $availableSeat = null;
+        $tries = 0;
+        do {
+            $tries++;
+            $seat = strtoupper(fake()->randomLetter) . str_pad(fake()->numberBetween(1, 30), 2, '0', STR_PAD_LEFT);
+            if (!in_array($seat, $usedSeats)) {
+                $availableSeat = $seat;
+                break;
+            }
+        } while ($tries < 50); // batasi looping agar tidak infinite
+    
+        return view('flights.book', compact('flight', 'availableSeat'));
     }
+    
 }
