@@ -22,7 +22,9 @@ class FlightController extends Controller
     }
     public function show($id) {
         $flights = Flight::findOrFail($id);
-        $passengers = Ticket::where('flight_id', $id)->get();
+        $passengers = Ticket::where('flight_id', $id)
+        ->orderBy('passenger_name', 'asc') // atau seat_number, atau passenger_name
+        ->get();
         $boardedCount = $passengers->whereNotNull('boarding_time')->count();
     
         return view('flights.show', [
