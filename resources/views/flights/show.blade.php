@@ -3,17 +3,30 @@
 <div class="bg-black text-white p-4 sm:p-8">
     <h1 class="text-2xl sm:text-3xl font-bold text-center mb-6">Airplane Booking System</h1>
     @if(session('success'))
-        <div class="mb-4 bg-green-600 text-white text-center px-4 py-2 rounded">
-            {{ session('success') }}
+    <div x-data="{ show: true }" x-show="show" class="mb-4 flex items-center justify-between bg-green-600 text-white px-4 py-3 rounded shadow">
+        <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M5 13l4 4L19 7"/>
+            </svg>
+            <span>{{ session('success') }}</span>
         </div>
+        <button @click="show = false" class="text-white hover:text-gray-200 text-lg leading-none">&times;</button>
+    </div>
     @endif
 
     @if(session('error'))
-        <div class="mb-4 bg-red-600 text-white text-center px-4 py-2 rounded">
-            {{ session('error') }}
+        <div x-data="{ show: true }" x-show="show" class="mb-4 flex items-center justify-between bg-red-600 text-white px-4 py-3 rounded shadow">
+            <div class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+                <span>{{ session('error') }}</span>
+            </div>
+            <button @click="show = false" class="text-white hover:text-gray-200 text-lg leading-none">&times;</button>
         </div>
     @endif
-
     <div class="min-h-[calc(100vh-80px)] bg-transparent border border-white border-2 p-6 rounded-lg flex flex-col">
         <div class="flex-grow">
             <div class="flex flex-wrap justify-between items-center mb-4 gap-2">

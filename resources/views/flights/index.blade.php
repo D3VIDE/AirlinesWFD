@@ -1,6 +1,32 @@
 @extends('base')
 @section('content')
   <h1 class="font-bold text-center text-white pt-4 mb-6">Airplane Booking System</h1>
+
+    @if(session('success'))
+    <div x-data="{ show: true }" x-show="show" class="mb-4 flex items-center justify-between bg-green-600 text-white px-4 py-3 rounded shadow">
+        <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M5 13l4 4L19 7"/>
+            </svg>
+            <span>{{ session('success') }}</span>
+        </div>
+        <button @click="show = false" class="text-white hover:text-gray-200 text-lg leading-none">&times;</button>
+    </div>
+    @endif
+
+    @if(session('error'))
+        <div x-data="{ show: true }" x-show="show" class="mb-4 flex items-center justify-between bg-red-600 text-white px-4 py-3 rounded shadow">
+            <div class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+                <span>{{ session('error') }}</span>
+            </div>
+            <button @click="show = false" class="text-white hover:text-gray-200 text-lg leading-none">&times;</button>
+        </div>
+    @endif
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
     @if($flights->isEmpty())
     <p class="text-white text-center col-span-full">No flights available at the moment.</p>

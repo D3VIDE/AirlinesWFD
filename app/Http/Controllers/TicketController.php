@@ -47,6 +47,6 @@ class TicketController extends Controller
             $ticket->save();
 
             // Redirect ke halaman sukses atau detail tiket
-            return redirect('/')->with('success', 'Ticket successfully booked!');
+            return redirect('/flights')->with('success', 'Ticket successfully booked!');
         }
 }
