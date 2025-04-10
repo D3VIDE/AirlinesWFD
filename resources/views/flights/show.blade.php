@@ -46,8 +46,9 @@
                         <td class="px-4 py-3">{{ $p->seat_number }}</td>
                         <td class="px-4 py-3 text-center">
                             @if ($p->boarding_time == null)
-                            <form action="{{ url('/flights/board/' . $p->id) }}" method="POST">
+                            <form action="{{ url('/ticket/board/' . $p->id) }}" method="POST">
                                 @csrf
+                                @method('PUT')
                                 <button type="submit" class="bg-orange-500 text-white px-3 py-1 rounded hover:bg-orange-600 text-xs">
                                     Confirm
                                 </button>
