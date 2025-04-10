@@ -1,0 +1,17 @@
+php artisan make:migration create_<Nama Migration>_table
+
+php artisan make:seeder <Nama Seeder>
+
+php artisan make:model <Nama Model>
+
+php artisan make:controller <Nama Controller> --ressource (membuat lengkap CRUD)
+
+php artisan db:seed --class=<Nama Seeder>  
+
+php artisan route:list --> Melihat route
+
+php artisan storage:link
+
+php artisan make:factory TicketFactory --model=Ticket
+
+php artisan migrate:fresh --seed

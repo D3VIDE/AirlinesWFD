@@ -7,9 +7,18 @@
   <title>Base</title>
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body>
-  <h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
+<style>
+  body {
+    font-family: 'Fira Code', monospace;
+    text-wrap: pretty;
+  }
+  h1{
+    font-size: 30px;
+  }
+</style>
+<body class="bg-black">
+  <div class="container mx-auto py-6 px-4">
+      @yield('content')
+  </div>
 </body>
 </html>
