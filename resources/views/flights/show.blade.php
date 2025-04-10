@@ -45,7 +45,7 @@
                         <td class="px-4 py-3">{{ $p->passenger_phone }}</td>
                         <td class="px-4 py-3">{{ $p->seat_number }}</td>
                         <td class="px-4 py-3 text-center">
-                            @if ($p->boarded_at == null)
+                            @if ($p->boarding_time == null)
                             <form action="{{ url('/flights/board/' . $p->id) }}" method="POST">
                                 @csrf
                                 <button type="submit" class="bg-orange-500 text-white px-3 py-1 rounded hover:bg-orange-600 text-xs">
@@ -53,7 +53,7 @@
                                 </button>
                             </form>
                             @else
-                            {{ \Carbon\Carbon::parse($p->boarded_at)->format('d-m-Y, H:i') }}
+                            {{ \Carbon\Carbon::parse($p->boarding_time)->format('d-m-Y, H:i') }}
                             @endif
                         </td>
                         <td class="px-4 py-3 text-center">
@@ -62,8 +62,8 @@
                                 @method('DELETE')
                                 <button type="submit"
                                     class="bg-red-700 text-white px-3 py-1 rounded hover:bg-red-600 text-xs 
-                                    @if($p->boarded_at != null) opacity-50 cursor-not-allowed @endif"
-                                    @if($p->boarded_at != null) disabled @endif>
+                                    @if($p->boarding_time != null) opacity-50 cursor-not-allowed @endif"
+                                    @if($p->boarding_time != null) disabled @endif>
                                     Delete
                                 </button>
                             </form>

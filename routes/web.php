@@ -8,3 +8,6 @@ Route::get('/', function () {
 
 Route::get('/flights', [FlightController::class, 'index']);
 Route::get('/flights/ticket/{id}', [FlightController::class, 'show']);
+Route::post('/flights/board/{id}', [FlightController::class, 'boardPassenger']); 
+Route::delete('/flights/delete/{id}', [FlightController::class, 'deletePassenger']);
+
