@@ -15,3 +15,41 @@ php artisan storage:link
 php artisan make:factory TicketFactory --model=Ticket
 
 php artisan migrate:fresh --seed
+
+composer run dev
+
+composer install
+
+Relasi : 
+1:1 = 
+public function profile()
+{
+    return $this->hasOne(Profile::class);
+}
+
+public function user()
+{
+    return $this->belongsTo(User::class);
+}
+
+1:M =
+public function tickets()
+{
+    return $this->hasMany(Ticket::class);
+}
+
+public function flight()
+{
+    return $this->belongsTo(Flight::class);
+}
+
+N:M =
+public function roles()
+{
+    return $this->belongsToMany(Role::class);
+}
+
+public function users()
+{
+    return $this->belongsToMany(User::class);
+}
