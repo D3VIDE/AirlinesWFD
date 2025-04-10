@@ -32,19 +32,31 @@
 
             <div class="mb-4">
                 <label class="block text-sm font-medium mb-1">Passenger Name</label>
-                <input type="text" name="passenger_name" class="w-full p-2 border border-transparent rounded-md border border-white border-2" required>
+                <input type="text" name="passenger_name" value="{{ old('passenger_name') }}"
+                       class="w-full p-2 border border-transparent rounded-md border-white border-2" required>
+                @error('passenger_name')
+                    <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
+                @enderror
             </div>
-
+            
             <div class="mb-4">
                 <label class="block text-sm font-medium mb-1">Passenger Phone</label>
-                <input type="text" name="passenger_phone" class="w-full p-2 border border-transparent rounded-md border border-white border-2" required>
+                <input type="text" name="passenger_phone" value="{{ old('passenger_phone') }}"
+                       class="w-full p-2 border border-transparent rounded-md border-white border-2" required>
+                @error('passenger_phone')
+                    <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
+                @enderror
             </div>
-
+            
             <div class="mb-6">
                 <label class="block text-sm font-medium mb-1">Seat Number</label>
-                <input type="text" name="seat_number" value="{{ $availableSeat }}" class="w-full p-2 border border-transparent rounded-md border border-white border-2" required>
+                <input type="text" name="seat_number" value="{{ old('seat_number', $availableSeat) }}"
+                       class="w-full p-2 border border-transparent rounded-md border-white border-2" required>
+                @error('seat_number')
+                    <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
+                @enderror
             </div>
-
+            
             <div class="flex justify-center gap-4">
                 <a href="{{ url('/flights') }}" class="bg-red-600 hover:bg-red-700 px-4 py-2 rounded text-sm">
                     Cancel

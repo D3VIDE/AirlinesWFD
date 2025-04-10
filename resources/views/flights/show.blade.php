@@ -2,6 +2,17 @@
 @section('content')
 <div class="bg-black text-white p-4 sm:p-8">
     <h1 class="text-2xl sm:text-3xl font-bold text-center mb-6">Airplane Booking System</h1>
+    @if(session('success'))
+        <div class="mb-4 bg-green-600 text-white text-center px-4 py-2 rounded">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    @if(session('error'))
+        <div class="mb-4 bg-red-600 text-white text-center px-4 py-2 rounded">
+            {{ session('error') }}
+        </div>
+    @endif
 
     <div class="min-h-[calc(100vh-80px)] bg-transparent border border-white border-2 p-6 rounded-lg flex flex-col">
         <div class="flex-grow">
