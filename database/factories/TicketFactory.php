@@ -3,7 +3,7 @@
 namespace Database\Factories;
 use App\Models\Ticket;
 use Illuminate\Database\Eloquent\Factories\Factory;
-
+use Illuminate\Http\Request;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Ticket>
  */

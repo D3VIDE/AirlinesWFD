@@ -34,10 +34,10 @@ class FlightController extends Controller
 
     public function book($id)
     {
-        $flight = Flight::findOrFail($id);
+        $flights = Flight::findOrFail($id);
     
         // Ambil kursi yang sudah digunakan
-        $usedSeats = $flight->tickets()->pluck('seat_number')->toArray();
+        $usedSeats = $flights->tickets()->pluck('seat_number')->toArray();
     
         // Coba cari seat yang belum dipakai dengan format A01–Z30
         $availableSeat = null;
@@ -51,7 +51,7 @@ class FlightController extends Controller
             }
         } while ($tries < 50); // batasi looping agar tidak infinite
     
-        return view('flights.book', compact('flight', 'availableSeat'));
+        return view('flights.book', compact('flights', 'availableSeat'));
     }
     
 }

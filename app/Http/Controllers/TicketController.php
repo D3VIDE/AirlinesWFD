@@ -29,4 +29,24 @@ class TicketController extends Controller
 
         return back()->with('error', 'Cannot delete. Passenger already boarded.');
     }
+    public function submit(Request $request)
+        {
+            $validated = $request->validate([
+                'flight_id' => 'required|exists:flights,id',
+                'passenger_name' => 'required|string',
+                'passenger_phone' => 'required|string',
+                'seat_number' => 'required|string',
+            ]);
+
+            // Simpan data ke database
+            $ticket = new Ticket();
+            $ticket->flight_id = $validated['flight_id'];
+            $ticket->passenger_name = $validated['passenger_name'];
+            $ticket->passenger_phone = $validated['passenger_phone'];
+            $ticket->seat_number = $validated['seat_number'];
+            $ticket->save();
+
+            // Redirect ke halaman sukses atau detail tiket
+            return redirect('/')->with('success', 'Ticket successfully booked!');
+        }
 }
