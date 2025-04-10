@@ -11,4 +11,5 @@ Route::get('/flights', [FlightController::class, 'index']);
 Route::get('/flights/ticket/{id}', [FlightController::class, 'show']);
 Route::put('/ticket/board/{id}', [TicketController::class, 'boardPassenger']);
 Route::delete('/ticket/delete/{id}', [TicketController::class, 'deletePassenger']);
+Route::get('/flights/book/{id}', [FlightController::class, 'book']);
 

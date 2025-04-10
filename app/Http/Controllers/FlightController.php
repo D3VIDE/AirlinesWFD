@@ -31,4 +31,8 @@ class FlightController extends Controller
             'boardedCount' => $boardedCount
         ]);
     }
+
+    public function book(){
+        
+    }
 }

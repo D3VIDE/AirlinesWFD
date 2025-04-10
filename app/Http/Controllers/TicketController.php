@@ -11,6 +11,7 @@ class TicketController extends Controller
         // Cek kalau belum boarding, baru update
         if ($passenger->boarding_time === null) {
             $passenger->boarding_time = now();
+            $passenger->is_boarding = 1;
             $passenger->save();
         }
         return back()->with('success', 'Passenger has boarded.');

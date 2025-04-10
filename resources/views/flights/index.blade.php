@@ -1,6 +1,6 @@
 @extends('base')
 @section('content')
-  <h1 class="font-bold text-center text-white pt-4">Airplane Booking System</h1>
+  <h1 class="font-bold text-center text-white pt-4 mb-6">Airplane Booking System</h1>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
     @foreach ($flights as $flight)
             <div class="bg-transparent p-5 rounded-lg border-2 border-white">

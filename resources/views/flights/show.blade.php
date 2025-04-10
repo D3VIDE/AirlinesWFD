@@ -64,12 +64,12 @@
                                     @method('DELETE')
                                     <button type="submit"
                                         class="px-3 py-1 rounded text-xs text-white
-                                        @if($p->boarding_time)
+                                        @if($p->is_boarding == 1)
                                             bg-gray-500 opacity-50 cursor-not-allowed
                                         @else
                                             bg-red-700 hover:bg-red-600
                                         @endif"
-                                        @if($p->boarding_time) disabled @endif>
+                                        @if($p->is_boarding == 1) disabled @endif>
                                         Delete
                                     </button>
                                 </form>
