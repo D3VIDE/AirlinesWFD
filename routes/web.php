@@ -7,3 +7,4 @@ Route::get('/', function () {
 });
 
 Route::get('/flights', [FlightController::class, 'index']);
+Route::get('/flights/ticket/{id}', [FlightController::class, 'show']);

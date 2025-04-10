@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Flight;
+use App\Models\Ticket;
 use Illuminate\Http\Request;
 
 class FlightController extends Controller
@@ -18,5 +19,16 @@ class FlightController extends Controller
         $flight = Flight::orderBy('id','asc')->get(); //kalo mau data terbaru 'desc'
         return view('flights.index',compact('flight');
   */
+    }
+    public function show($id) {
+        $flights = Flight::findOrFail($id);
+        $passengers = Ticket::where('flight_id', $id)->get();
+        $boardedCount = $passengers->whereNotNull('boarded_at')->count();
+    
+        return view('flights.show', [
+            'flights' => $flights,
+            'passengers' => $passengers,
+            'boardedCount' => $boardedCount
+        ]);
     }
 }
