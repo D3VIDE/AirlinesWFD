@@ -1,3 +1,5 @@
+php artisan make:controller NamaController --resource
+
 php artisan make:migration create_<Nama Migration>_table
 
 php artisan make:seeder <Nama Seeder>
