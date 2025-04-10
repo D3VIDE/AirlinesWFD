@@ -34,7 +34,7 @@
         @foreach ($flights as $flight)
                 <div class="bg-transparent p-5 rounded-lg border-2 border-white">
                     <div class="flex justify-between items-start">
-                        <h3 class="text-lg font-bold">{{ $flight->flight_code }}</h3>
+                        <h3 class="text-lg font-bold text-white">{{ $flight->flight_code }}</h3>
                         <span class="text-sm text-white italic font-semibold">{{ $flight->origin }} → {{ $flight->destination }}</span>
                     </div>
 
